@@ -78,6 +78,7 @@ public class PlayerController : MonoBehaviour
         // hide fire
         mesh.SetActive(false);
         canMove = false;
+        AudioManager.instance.PlayLightOut();
         yield return new WaitForSeconds(1);
         PlayerSpawner.instance.RespawnPlayerToLastCheck();
     }
@@ -86,6 +87,7 @@ public class PlayerController : MonoBehaviour
     {
         mesh.SetActive(false);
         canMove = false;
+        AudioManager.instance.PlayLevelCompleted();
         PlayerSpawner.instance.currentSpawnPoint++;
         yield return new WaitForSeconds(1);
         PlayerSpawner.instance.RespawnPlayerToLastCheck();
