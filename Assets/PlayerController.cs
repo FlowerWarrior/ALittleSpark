@@ -30,8 +30,8 @@ public class PlayerController : MonoBehaviour
             return;
 
         Vector3 deltaVector = Vector3.zero;
-        deltaVector.x += Input.GetAxis("Horizontal") * controlsSensivity;
-        deltaVector.z += forwardSpeed + Input.GetAxis("Vertical") * forwardControlsSensitvity;
+        deltaVector += rb.transform.right * Input.GetAxis("Horizontal") * controlsSensivity;
+        deltaVector += rb.transform.forward * (forwardSpeed + Input.GetAxis("Vertical") * forwardControlsSensitvity);
 
         if (intialRiseTimer < initialRiseTime)
         {
