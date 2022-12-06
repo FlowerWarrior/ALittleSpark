@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
             // enable fire on target
             collision.gameObject.transform.GetChild(0).gameObject.SetActive(true);
         }
-        if (collision.gameObject.tag == "FinalTarget")
+        if (collision.gameObject.tag == "FInalTarget")
         {
             StartCoroutine(LevelCompleted());
             // enable fire on target
@@ -95,6 +95,7 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator LevelCompleted()
     {
+        print("level completed");
         mesh.SetActive(false);
         canMove = false;
         PlayerSpawner.instance.currentSpawnPoint++;
