@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] MeshRenderer meshRenderer;
+    [SerializeField] Camera camera;
 
     [SerializeField] float fallSpeed;
     [SerializeField] float forwardSpeed;
@@ -12,6 +13,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float forwardControlsSensitvity;
     [SerializeField] float initialRiseTime;
     [SerializeField] float initialRiseSpeed;
+    [SerializeField] float fovChangeScale;
+    [SerializeField] float fovChangeSpeed;
 
     Rigidbody rb;
     float intialRiseTimer = 0f;
@@ -32,6 +35,9 @@ public class PlayerController : MonoBehaviour
         Vector3 deltaVector = Vector3.zero;
         deltaVector += rb.transform.right * Input.GetAxis("Horizontal") * controlsSensivity;
         deltaVector += rb.transform.forward * (forwardSpeed + Input.GetAxis("Vertical") * forwardControlsSensitvity);
+        //camera
+        float targetFov = 60 + Input.GetAxis("Vertical") * fovChangeScale;
+        camera.fieldOfView = Mathf.Lerp(camera.fieldOfView, targetFov, fovChangeSpeed * Time.deltaTime);
 
         if (intialRiseTimer < initialRiseTime)
         {
