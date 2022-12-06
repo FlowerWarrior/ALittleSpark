@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] GameObject mesh;
-    [SerializeField] Camera camera;
+    [SerializeField] CinemachineVirtualCamera cmVCam;
 
     [SerializeField] float fallSpeed;
     [SerializeField] float forwardSpeed;
@@ -37,7 +38,7 @@ public class PlayerController : MonoBehaviour
         deltaVector += rb.transform.forward * (forwardSpeed + Input.GetAxis("Vertical") * forwardControlsSensitvity);
         //camera
         float targetFov = 60 + Input.GetAxis("Vertical") * fovChangeScale;
-        camera.fieldOfView = Mathf.Lerp(camera.fieldOfView, targetFov, fovChangeSpeed * Time.deltaTime);
+        cmVCam.m_Lens.FieldOfView = Mathf.Lerp(cmVCam.m_Lens.FieldOfView, targetFov, fovChangeSpeed * Time.deltaTime);
 
         if (intialRiseTimer < initialRiseTime)
         {
