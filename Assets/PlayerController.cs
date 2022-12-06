@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] MeshRenderer meshRenderer;
+    [SerializeField] GameObject mesh;
     [SerializeField] Camera camera;
 
     [SerializeField] float fallSpeed;
@@ -60,6 +60,12 @@ public class PlayerController : MonoBehaviour
             // enable fire on target
             collision.gameObject.transform.GetChild(0).gameObject.SetActive(true);
         }
+        if (collision.gameObject.tag == "FinalTarget")
+        {
+            StartCoroutine(LevelCompleted());
+            // enable fire on target
+            collision.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+        }
         else
         {
             StartCoroutine(RespawnRoutine());
@@ -69,7 +75,7 @@ public class PlayerController : MonoBehaviour
     private IEnumerator RespawnRoutine()
     {
         // hide fire
-        meshRenderer.enabled = false;
+        mesh.SetActive(false);
         canMove = false;
         yield return new WaitForSeconds(1);
         PlayerSpawner.instance.RespawnPlayerToLastCheck();
@@ -77,10 +83,19 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator NextCheckpointtRoutine()
     {
-        meshRenderer.enabled = false;
+        mesh.SetActive(false);
         canMove = false;
         PlayerSpawner.instance.currentSpawnPoint++;
         yield return new WaitForSeconds(1);
         PlayerSpawner.instance.RespawnPlayerToLastCheck();
+    }
+
+    private IEnumerator LevelCompleted()
+    {
+        mesh.SetActive(false);
+        canMove = false;
+        PlayerSpawner.instance.currentSpawnPoint++;
+        yield return new WaitForSeconds(2);
+        SceneMgr.instance.LoadNextLevel();
     }
 }

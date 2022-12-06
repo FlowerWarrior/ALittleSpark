@@ -6,6 +6,7 @@ public class PlayerSpawner : MonoBehaviour
 {
     [SerializeField] GameObject playerPrefab;
     [SerializeField] Transform[] spawnPoints;
+    [SerializeField] Transform musicHolder;
     internal GameObject playerInstance = null;
     internal Rigidbody playerRb = null;
     internal int currentSpawnPoint = 0;
@@ -31,6 +32,15 @@ public class PlayerSpawner : MonoBehaviour
 
         playerInstance = Instantiate(playerPrefab, spawnPoints[currentSpawnPoint].position, spawnPoints[currentSpawnPoint].rotation).gameObject;
         playerRb = playerInstance.GetComponent<Rigidbody>();
+
+        for (int i = 0; i < musicHolder.childCount; i++)
+        {
+            musicHolder.GetChild(i).gameObject.SetActive(false);
+            if (currentSpawnPoint == i)
+            {
+                musicHolder.GetChild(i).gameObject.SetActive(true);
+            }
+        }
     }
 
     public void RespawnPlayerToLastCheck()
