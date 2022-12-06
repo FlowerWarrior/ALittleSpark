@@ -311,12 +311,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meshRenderer: {fileID: 4974764053292312535}
-  fallSpeed: 0.2
+  fallSpeed: 0.05
   forwardSpeed: 0.6
   controlsSensivity: 0.8
   forwardControlsSensitvity: 0.12
   initialRiseTime: 2
-  initialRiseSpeed: 1
+  initialRiseSpeed: 1.5
 --- !u!54 &4974764053292312528
 Rigidbody:
   m_ObjectHideFlags: 0
