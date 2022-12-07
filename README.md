@@ -1,2 +1,1 @@
-# schoolGameJam12-06-2022
- 
+Game made during small 22h game jam.
