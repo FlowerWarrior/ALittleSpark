@@ -5290,7 +5290,7 @@ MonoBehaviour:
   controlsSensivity: 0.8
   forwardControlsSensitvity: 0.2
   initialRiseTime: 2
-  initialRiseSpeed: 1.5
+  initialRiseSpeed: 1
   fovChangeScale: 1.3
   fovChangeSpeed: 5
 --- !u!54 &4974764053292312528

@@ -872,7 +872,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: b032c3a4919b46f498e9b2ab3d3abb0b, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1378,8 +1378,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tempAudioSourcePrefab: {fileID: 3790084908981868703, guid: 20b245be291859045a5382c999953707,
     type: 3}
-  audioLightOut: {fileID: 0}
-  audioLevelComplete: {fileID: 0}
+  audioLightOut: {fileID: 8300000, guid: 7d6d89f8b5411114ca0c360fa0a7eac2, type: 3}
+  audioLevelComplete: {fileID: 8300000, guid: 641d969c4dab2224ca120ca90211c0fe, type: 3}
 --- !u!4 &667475825 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7441337972023916332, guid: 13e5d6638ca52014dad6672d36abe003,
@@ -2578,7 +2578,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: b032c3a4919b46f498e9b2ab3d3abb0b, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
