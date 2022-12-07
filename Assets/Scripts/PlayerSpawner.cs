@@ -5,11 +5,15 @@ using UnityEngine;
 public class PlayerSpawner : MonoBehaviour
 {
     [SerializeField] GameObject playerPrefab;
-    List<Transform> spawnPoints = new List<Transform>();
     [SerializeField] Transform musicHolder;
+    [SerializeField] float playerFallSpeed = 0.35f;
+    [SerializeField] float playerForwardSpeed = 0.6f;
+
     internal GameObject playerInstance = null;
     internal Rigidbody playerRb = null;
     internal int currentSpawnPoint = 0;
+    int starsCollected = 0;
+    List<Transform> spawnPoints = new List<Transform>();
 
     public static PlayerSpawner instance;
     private void Awake()
@@ -35,7 +39,12 @@ public class PlayerSpawner : MonoBehaviour
         }
 
         playerInstance = Instantiate(playerPrefab, spawnPoints[currentSpawnPoint].position, spawnPoints[currentSpawnPoint].rotation).gameObject;
-        playerRb = playerInstance.GetComponent<Rigidbody>();
+        playerRb = playerInstance.transform.GetChild(0).GetComponent<Rigidbody>();
+        PlayerController playerController = playerInstance.transform.GetChild(0).GetComponent<PlayerController>();
+        playerController.initialRiseSpeed = spawnPoints[currentSpawnPoint].GetComponent<SpawnPoint>().initialRisePower;
+        playerController.initialRiseTime = spawnPoints[currentSpawnPoint].GetComponent<SpawnPoint>().initialRiseTime;
+        playerController.forwardSpeed = playerForwardSpeed;
+        playerController.fallSpeed = playerFallSpeed;
 
         for (int i = 0; i < musicHolder.childCount; i++)
         {
@@ -50,5 +59,16 @@ public class PlayerSpawner : MonoBehaviour
     public void RespawnPlayerToLastCheck()
     {
         SpawnPlayer();
+    }
+
+    public void CollectedStar()
+    {
+        starsCollected++;
+        print(starsCollected);
+    }
+
+    public void OnLevelCompleted()
+    {
+        UIMGR.instance.ShowStarsCollected(starsCollected);
     }
 }

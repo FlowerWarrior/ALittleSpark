@@ -8,12 +8,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject mesh;
     [SerializeField] CinemachineVirtualCamera cmVCam;
 
-    [SerializeField] float fallSpeed;
-    [SerializeField] float forwardSpeed;
+    internal float fallSpeed;
+    internal float forwardSpeed;
     [SerializeField] float controlsSensivity;
     [SerializeField] float forwardControlsSensitvity;
-    [SerializeField] float initialRiseTime;
-    [SerializeField] float initialRiseSpeed;
     [SerializeField] float fovChangeScale;
     [SerializeField] float fovChangeSpeed;
 
@@ -21,6 +19,8 @@ public class PlayerController : MonoBehaviour
     float intialRiseTimer = 0f;
     bool canMove = true;
     internal Vector3 fanThurstsMoveVector = Vector3.zero;
+    internal float initialRiseTime;
+    internal float initialRiseSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -36,7 +36,6 @@ public class PlayerController : MonoBehaviour
 
         Vector3 deltaVector = Vector3.zero;
         deltaVector += rb.transform.right * Input.GetAxis("Horizontal") * controlsSensivity;
-        deltaVector += rb.transform.forward * (forwardSpeed + Input.GetAxis("Vertical") * forwardControlsSensitvity);
 
         deltaVector += fanThurstsMoveVector;
 
@@ -52,6 +51,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             deltaVector.y -= fallSpeed;
+            deltaVector += rb.transform.forward * 0.2f * (forwardSpeed + Input.GetAxis("Vertical") * forwardControlsSensitvity);
         }
 
         rb.transform.position += deltaVector * Time.fixedDeltaTime;
@@ -102,8 +102,8 @@ public class PlayerController : MonoBehaviour
         print("level completed");
         mesh.SetActive(false);
         canMove = false;
-        PlayerSpawner.instance.currentSpawnPoint++;
-        yield return new WaitForSeconds(2);
+        PlayerSpawner.instance.OnLevelCompleted();
+        yield return new WaitForSeconds(2.5f);
         SceneMgr.instance.LoadNextLevel();
     }
 }

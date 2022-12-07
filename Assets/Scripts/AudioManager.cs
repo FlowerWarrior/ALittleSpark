@@ -8,6 +8,7 @@ public class AudioManager : MonoBehaviour
     [Header("Audio clips")]
     [SerializeField] AudioClip audioLightOut;
     [SerializeField] AudioClip audioLevelComplete;
+    [SerializeField] AudioClip audioStarCollected;
 
     public static AudioManager instance;
     private void Awake()
@@ -33,5 +34,10 @@ public class AudioManager : MonoBehaviour
     public void PlayLevelCompleted()
     {
         PlayAudioEffect(audioLevelComplete);
+    }
+
+    public void PlayStarCollected()
+    {
+        PlayAudioEffect(audioStarCollected);
     }
 }
