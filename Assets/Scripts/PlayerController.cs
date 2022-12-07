@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody rb;
     float intialRiseTimer = 0f;
     bool canMove = true;
+    internal Vector3 fanThurstsMoveVector = Vector3.zero;
 
     // Start is called before the first frame update
     void Start()
@@ -36,7 +37,10 @@ public class PlayerController : MonoBehaviour
         Vector3 deltaVector = Vector3.zero;
         deltaVector += rb.transform.right * Input.GetAxis("Horizontal") * controlsSensivity;
         deltaVector += rb.transform.forward * (forwardSpeed + Input.GetAxis("Vertical") * forwardControlsSensitvity);
-        //camera
+
+        deltaVector += fanThurstsMoveVector;
+
+        //dynamic camera fov
         float targetFov = 60 + Input.GetAxis("Vertical") * fovChangeScale;
         cmVCam.m_Lens.FieldOfView = Mathf.Lerp(cmVCam.m_Lens.FieldOfView, targetFov, fovChangeSpeed * Time.deltaTime);
 
