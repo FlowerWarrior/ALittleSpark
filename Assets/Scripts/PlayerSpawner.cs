@@ -11,7 +11,7 @@ public class PlayerSpawner : MonoBehaviour
 
     internal GameObject playerInstance = null;
     internal Rigidbody playerRb = null;
-    internal int currentSpawnPoint = 0;
+    [SerializeField] internal int currentSpawnPoint = 0;
     int starsCollected = 0;
     List<Transform> spawnPoints = new List<Transform>();
 
