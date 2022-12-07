@@ -11,9 +11,10 @@ public class PlayerSpawner : MonoBehaviour
 
     internal GameObject playerInstance = null;
     internal Rigidbody playerRb = null;
-    internal int currentSpawnPoint = 0;
+    [SerializeField] internal int currentSpawnPoint = 0;
     int starsCollected = 0;
     List<Transform> spawnPoints = new List<Transform>();
+    internal Collider currentSpawnCollider = null;
 
     public static PlayerSpawner instance;
     private void Awake()
@@ -70,5 +71,14 @@ public class PlayerSpawner : MonoBehaviour
     public void OnLevelCompleted()
     {
         UIMGR.instance.ShowStarsCollected(starsCollected);
+    }
+
+    public void SwitchToNextSpawnpoint(Collider newSpawnCollider)
+    {
+        if (currentSpawnCollider != newSpawnCollider)
+        {
+            currentSpawnPoint++;
+            currentSpawnCollider = newSpawnCollider;
+        }
     }
 }
