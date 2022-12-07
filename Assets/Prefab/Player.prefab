@@ -110,8 +110,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1682840003399268000}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0000011324883, y: 1.0500512, z: -1.526}
+  m_LocalRotation: {x: -0, y: 0.85897446, z: -0, w: 0.51201844}
+  m_LocalPosition: {x: -8.84695, y: 2.566338, z: -18.251179}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5286,7 +5286,7 @@ MonoBehaviour:
   mesh: {fileID: 1171250245326346485}
   cmVCam: {fileID: 8605491061563586600}
   controlsSensivity: 0.8
-  forwardControlsSensitvity: 0.2
+  forwardControlsSensitvity: 0.5
   fovChangeScale: 1.3
   fovChangeSpeed: 5
 --- !u!54 &4974764053292312528
@@ -10263,8 +10263,8 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 0.78849506, b: 0.67358494, a: 1}
-  m_Intensity: 0.15
+  m_Color: {r: 1, g: 0.5949341, b: 0.47547168, a: 1}
+  m_Intensity: 0.2
   m_Range: 1.5
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -10303,7 +10303,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1

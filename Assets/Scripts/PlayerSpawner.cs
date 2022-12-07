@@ -12,9 +12,11 @@ public class PlayerSpawner : MonoBehaviour
     internal GameObject playerInstance = null;
     internal Rigidbody playerRb = null;
     [SerializeField] internal int currentSpawnPoint = 0;
-    int starsCollected = 0;
     List<Transform> spawnPoints = new List<Transform>();
     internal Collider currentSpawnCollider = null;
+
+    int starsCollected = 0;
+    int tempStars = 0;
 
     public static PlayerSpawner instance;
     private void Awake()
@@ -60,12 +62,16 @@ public class PlayerSpawner : MonoBehaviour
     public void RespawnPlayerToLastCheck()
     {
         SpawnPlayer();
+        // reenable stars
+        for (int i = 0; i < spawnPoints[currentSpawnPoint].childCount; i++)
+        {
+            spawnPoints[currentSpawnPoint].GetChild(i).gameObject.SetActive(true);
+        }
     }
 
     public void CollectedStar()
     {
-        starsCollected++;
-        print(starsCollected);
+        tempStars++;
     }
 
     public void OnLevelCompleted()
@@ -77,6 +83,8 @@ public class PlayerSpawner : MonoBehaviour
     {
         if (currentSpawnCollider != newSpawnCollider)
         {
+            starsCollected += tempStars;
+            tempStars = 0;
             currentSpawnPoint++;
             currentSpawnCollider = newSpawnCollider;
         }

@@ -22,10 +22,13 @@ public class PlayerController : MonoBehaviour
     internal float initialRiseTime;
     internal float initialRiseSpeed;
 
+    internal static System.Action PlayerSpawned;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        PlayerSpawned?.Invoke();
     }
 
     // Update is called once per frame
@@ -51,8 +54,10 @@ public class PlayerController : MonoBehaviour
         else
         {
             deltaVector.y -= fallSpeed;
-            deltaVector += rb.transform.forward * 0.2f * (forwardSpeed + Input.GetAxis("Vertical") * forwardControlsSensitvity);
+            deltaVector += rb.transform.forward * 0.2f * forwardSpeed;
         }
+
+        deltaVector += rb.transform.forward * Input.GetAxis("Vertical") * 0.2f * forwardControlsSensitvity;
 
         rb.transform.position += deltaVector * Time.fixedDeltaTime;
     }

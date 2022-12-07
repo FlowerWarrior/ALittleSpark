@@ -25,6 +25,13 @@ public class SceneMgr : MonoBehaviour
     public void LoadNextLevel()
     {
         int currentSceneId = SceneManager.GetActiveScene().buildIndex;
+
+        if (currentSceneId == 3)
+        {
+            SceneManager.LoadScene(0);
+            return;
+        }
+
         SceneManager.LoadScene(currentSceneId + 1);
     }
 }

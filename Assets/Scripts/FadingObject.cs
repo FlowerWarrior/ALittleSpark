@@ -35,4 +35,30 @@ public class FadingObject : MonoBehaviour, IEquatable<FadingObject>
     {
         return Position.GetHashCode();
     }
+
+    private void OnEnable()
+    {
+        PlayerController.PlayerSpawned += ResetFade;
+    }
+
+    private void OnDisable()
+    {
+        PlayerController.PlayerSpawned -= ResetFade;
+    }
+
+    private void ResetFade()
+    {
+        foreach (Material material in Materials)
+        {
+            if (material.HasProperty("_Color"))
+            {
+                material.color = new Color(
+                    material.color.r,
+                    material.color.g,
+                    material.color.b,
+                    1
+                );
+            }
+        }
+    }
 }

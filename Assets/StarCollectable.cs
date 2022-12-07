@@ -12,7 +12,7 @@ public class StarCollectable : MonoBehaviour
             PlayerSpawner.instance.CollectedStar();
             AudioManager.instance.PlayStarCollected();
             Instantiate(starParticles, transform.position, transform.rotation);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }
