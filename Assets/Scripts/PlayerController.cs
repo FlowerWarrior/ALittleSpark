@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
 
     internal static System.Action PlayerSpawned;
 
+    bool isAlive = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -64,7 +66,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Target")
+        if (collision.gameObject.tag == "Target" && isAlive)
         {
             StartCoroutine(NextCheckpointtRoutine(collision.collider));
             // enable fire on target
@@ -95,8 +97,10 @@ public class PlayerController : MonoBehaviour
     private IEnumerator NextCheckpointtRoutine(Collider newSpawnCollider)
     {
         mesh.SetActive(false);
+        isAlive = false;
         canMove = false;
         PlayerSpawner.instance.SwitchToNextSpawnpoint(newSpawnCollider);
+        print("next checkpoint");
         yield return new WaitForSeconds(1);
         PlayerSpawner.instance.RespawnPlayerToLastCheck();
     }
