@@ -5285,7 +5285,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mesh: {fileID: 1171250245326346485}
   cmVCam: {fileID: 8605491061563586600}
-  fallSpeed: 0.14
+  fallSpeed: 0.33
   forwardSpeed: 0.6
   controlsSensivity: 0.8
   forwardControlsSensitvity: 0.2
