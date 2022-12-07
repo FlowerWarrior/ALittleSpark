@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4341558269213232889}
   - component: {fileID: 860059620642799964}
   - component: {fileID: 3173767676342482326}
+  - component: {fileID: 228972804585075730}
   m_Layer: 0
   m_Name: zyrandol_2
   m_TagString: Untagged
@@ -84,3 +85,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &228972804585075730
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3966405264917992515}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8385836491182413749, guid: 8509fde074048244e869fbe1b33b8116, type: 3}

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6198057946821704000}
   - component: {fileID: 7038061101922596581}
   - component: {fileID: 5064508893745889839}
+  - component: {fileID: 1580138687833545931}
   m_Layer: 0
   m_Name: krzeslo
   m_TagString: Untagged
@@ -84,3 +85,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &1580138687833545931
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6721688902885204986}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2228417370725966487, guid: 037d0784486d54a488c868b1e371a5bc, type: 3}

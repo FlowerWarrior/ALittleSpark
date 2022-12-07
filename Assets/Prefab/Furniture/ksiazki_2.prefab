@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7988224847987581547}
   - component: {fileID: 6445842629278084558}
   - component: {fileID: 9120014583805794564}
+  - component: {fileID: 887824556814292101}
   m_Layer: 0
   m_Name: ksiazki_2
   m_TagString: Untagged
@@ -86,3 +87,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &887824556814292101
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7318402727645542609}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4723010164368009254, guid: 8784a35148afa564085a6bcc81f52503, type: 3}

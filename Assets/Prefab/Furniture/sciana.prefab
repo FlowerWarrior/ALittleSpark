@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3040788393968548954}
   - component: {fileID: 2133817249930097663}
   - component: {fileID: 4213152851997738805}
+  - component: {fileID: -7701648428119618291}
   m_Layer: 0
   m_Name: sciana
   m_TagString: Untagged
@@ -84,3 +85,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-7701648428119618291
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2411919778111317728}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1550514412580984892, guid: c6cf05ee99d967a4a9c2bff052bd0800, type: 3}
