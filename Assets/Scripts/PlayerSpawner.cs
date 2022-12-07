@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerSpawner : MonoBehaviour
 {
     [SerializeField] GameObject playerPrefab;
-    [SerializeField] Transform[] spawnPoints;
+    List<Transform> spawnPoints = new List<Transform>();
     [SerializeField] Transform musicHolder;
     internal GameObject playerInstance = null;
     internal Rigidbody playerRb = null;
@@ -15,6 +15,10 @@ public class PlayerSpawner : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            spawnPoints.Add(transform.GetChild(i));
+        }
     }
 
     // Start is called before the first frame update
