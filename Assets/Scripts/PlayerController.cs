@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Target")
         {
-            StartCoroutine(NextCheckpointtRoutine());
+            StartCoroutine(NextCheckpointtRoutine(collision.collider));
             // enable fire on target
             collision.gameObject.transform.GetChild(0).gameObject.SetActive(true);
         }
@@ -87,12 +87,11 @@ public class PlayerController : MonoBehaviour
         PlayerSpawner.instance.RespawnPlayerToLastCheck();
     }
 
-    private IEnumerator NextCheckpointtRoutine()
+    private IEnumerator NextCheckpointtRoutine(Collider newSpawnCollider)
     {
         mesh.SetActive(false);
         canMove = false;
-        AudioManager.instance.PlayLevelCompleted();
-        PlayerSpawner.instance.currentSpawnPoint++;
+        PlayerSpawner.instance.SwitchToNextSpawnpoint(newSpawnCollider);
         yield return new WaitForSeconds(1);
         PlayerSpawner.instance.RespawnPlayerToLastCheck();
     }
@@ -103,6 +102,7 @@ public class PlayerController : MonoBehaviour
         mesh.SetActive(false);
         canMove = false;
         PlayerSpawner.instance.OnLevelCompleted();
+        AudioManager.instance.PlayLevelCompleted();
         yield return new WaitForSeconds(2.5f);
         SceneMgr.instance.LoadNextLevel();
     }
