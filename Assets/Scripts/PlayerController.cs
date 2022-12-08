@@ -6,7 +6,7 @@ using Cinemachine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] GameObject mesh;
-    [SerializeField] CinemachineVirtualCamera cmVCam;
+    [SerializeField] Camera cam;
 
     internal float fallSpeed;
     internal float forwardSpeed;
@@ -29,8 +29,18 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
         rb = GetComponent<Rigidbody>();
         PlayerSpawned?.Invoke();
+    }
+
+    private void Update()
+    {
+        //dynamic camera fov
+        float targetFov = 60 + Input.GetAxis("Vertical") * fovChangeScale;
+        cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, targetFov, fovChangeSpeed * Time.deltaTime);
     }
 
     // Update is called once per frame
@@ -43,10 +53,6 @@ public class PlayerController : MonoBehaviour
         deltaVector += rb.transform.right * Input.GetAxis("Horizontal") * controlsSensivity;
 
         deltaVector += fanThurstsMoveVector;
-
-        //dynamic camera fov
-        float targetFov = 60 + Input.GetAxis("Vertical") * fovChangeScale;
-        cmVCam.m_Lens.FieldOfView = Mathf.Lerp(cmVCam.m_Lens.FieldOfView, targetFov, fovChangeSpeed * Time.deltaTime);
 
         if (intialRiseTimer < initialRiseTime)
         {

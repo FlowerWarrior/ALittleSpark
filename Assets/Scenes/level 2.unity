@@ -3995,6 +3995,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: choinka
       objectReference: {fileID: 0}
+    - target: {fileID: 5066934992067839049, guid: 714de6ffb2a240146aa65a9b8be6a74e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5555909405993803507, guid: 714de6ffb2a240146aa65a9b8be6a74e,
         type: 3}
       propertyPath: m_RootOrder
@@ -4050,6 +4055,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -58.359
       objectReference: {fileID: 0}
+    - target: {fileID: 6724334903478773148, guid: 714de6ffb2a240146aa65a9b8be6a74e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7441337971447587743, guid: 714de6ffb2a240146aa65a9b8be6a74e,
         type: 3}
       propertyPath: m_IsActive
@@ -4091,7 +4101,7 @@ MonoBehaviour:
   musicHolder: {fileID: 899097628}
   playerFallSpeed: 0.41
   playerForwardSpeed: 5.3
-  currentSpawnPoint: 1
+  currentSpawnPoint: 0
 --- !u!4 &1083117814
 Transform:
   m_ObjectHideFlags: 0
