@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107885, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731713, g: 0.13414736, b: 0.12107852, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -689,6 +689,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: okno
+      objectReference: {fileID: 0}
+    - target: {fileID: 7802091876187199954, guid: ac8e547410f18444494ef8e0792b40ba,
+        type: 3}
+      propertyPath: m_TagString
+      value: Target
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac8e547410f18444494ef8e0792b40ba, type: 3}
@@ -1845,7 +1850,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 730db0508f43f744e91b9153273adb98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialRisePower: 6
+  initialRisePower: 4
   initialRiseTime: 1
 --- !u!1001 &1136022647
 PrefabInstance:
