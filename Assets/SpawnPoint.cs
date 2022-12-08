@@ -11,5 +11,8 @@ public class SpawnPoint : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawLine(transform.position, transform.position + Vector3.up * initialRisePower * 0.8f);
+
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawLine(transform.position, transform.position + transform.forward * 1f);
     }
 }

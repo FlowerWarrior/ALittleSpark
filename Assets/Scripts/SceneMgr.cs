@@ -26,7 +26,7 @@ public class SceneMgr : MonoBehaviour
     {
         int currentSceneId = SceneManager.GetActiveScene().buildIndex;
 
-        if (currentSceneId == 3)
+        if (currentSceneId == 2)
         {
             SceneManager.LoadScene(0);
             return;

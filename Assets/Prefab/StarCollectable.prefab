@@ -306,6 +306,7 @@ GameObject:
   - component: {fileID: 7323107310286095358}
   - component: {fileID: 1166757439530642782}
   - component: {fileID: 6535138872072333508}
+  - component: {fileID: 2670210411339583994}
   m_Layer: 0
   m_Name: gwiazdka
   m_TagString: Untagged
@@ -424,6 +425,26 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2503570561262843418, guid: 2ed52c9b3e366324f8547b0f885bc465, type: 3}
+--- !u!95 &2670210411339583994
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3000935407188060650}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9e7465177a7a40a4bb9d66b63b6f306e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4149101400896319453
 GameObject:
   m_ObjectHideFlags: 0
