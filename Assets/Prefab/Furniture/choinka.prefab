@@ -588,7 +588,7 @@ GameObject:
   - component: {fileID: 6724334903478773148}
   - component: {fileID: 147571792950818679}
   - component: {fileID: 731673532544097170}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: choinka
   m_TagString: FInalTarget
   m_Icon: {fileID: 0}
@@ -686,7 +686,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5066934992067839049}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8cbe445f38b322343968bb3669ac7713, type: 3}
   m_Name: 
@@ -803,6 +803,11 @@ PrefabInstance:
     - target: {fileID: 1375461399, guid: 13e5d6638ca52014dad6672d36abe003, type: 3}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1045104606522684788, guid: 13e5d6638ca52014dad6672d36abe003,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3461658483896755110, guid: 13e5d6638ca52014dad6672d36abe003,
         type: 3}

@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] GameObject mesh;
     [SerializeField] Camera cam;
+    [SerializeField] CinemachineVirtualCamera vmCam;
+    [SerializeField] float finalCamTransitionSpeed = 1f;
 
     internal float fallSpeed;
     internal float forwardSpeed;
@@ -36,11 +38,20 @@ public class PlayerController : MonoBehaviour
         PlayerSpawned?.Invoke();
     }
 
-    private void Update()
+    bool finalCameraPoseToggle = false;
+    Transform finalCamPoint = null;
+
+    private void LateUpdate()
     {
         //dynamic camera fov
         float targetFov = 60 + Input.GetAxis("Vertical") * fovChangeScale;
         cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, targetFov, fovChangeSpeed * Time.deltaTime);
+
+        if (finalCameraPoseToggle)
+        {
+            cam.transform.position = Vector3.Lerp(cam.transform.position, finalCamPoint.position, finalCamTransitionSpeed * Time.deltaTime);
+            cam.transform.rotation = Quaternion.Lerp(cam.transform.rotation, finalCamPoint.rotation, finalCamTransitionSpeed * Time.deltaTime);
+        }
     }
 
     // Update is called once per frame
@@ -116,9 +127,12 @@ public class PlayerController : MonoBehaviour
         print("level completed");
         mesh.SetActive(false);
         canMove = false;
+        vmCam.enabled = false;
+        finalCamPoint = PlayerSpawner.instance.finalCameraPoint;
+        finalCameraPoseToggle = true;
         PlayerSpawner.instance.OnLevelCompleted();
         AudioManager.instance.PlayLevelCompleted();
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(3.5f);
         SceneMgr.instance.LoadNextLevel();
     }
 }

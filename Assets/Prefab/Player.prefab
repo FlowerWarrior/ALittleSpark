@@ -110,8 +110,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1682840003399268000}
-  m_LocalRotation: {x: -0, y: 0.67604965, z: -0, w: 0.7368561}
-  m_LocalPosition: {x: -2.7625546, y: 2.318356, z: -12.125517}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.0499997, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5414,6 +5414,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mesh: {fileID: 1171250245326346485}
   cam: {fileID: 3555931022355686712}
+  vmCam: {fileID: 8605491061563586600}
+  finalCamTransitionSpeed: 0.8
   controlsSensivity: 0.8
   forwardControlsSensitvity: 0.6
   fovChangeScale: 3

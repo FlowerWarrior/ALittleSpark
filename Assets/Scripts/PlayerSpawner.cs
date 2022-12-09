@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerSpawner : MonoBehaviour
 {
+    [SerializeField] internal Transform finalCameraPoint;
     [SerializeField] GameObject playerPrefab;
     [SerializeField] Transform musicHolder;
     [SerializeField] float playerFallSpeed = 0.35f;
@@ -21,6 +22,8 @@ public class PlayerSpawner : MonoBehaviour
     public static PlayerSpawner instance;
     private void Awake()
     {
+        finalCameraPoint.gameObject.SetActive(false);
+
         instance = this;
         for (int i = 0; i < transform.childCount; i++)
         {
